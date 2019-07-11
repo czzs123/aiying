@@ -1,0 +1,14 @@
+<!--pages/mymovie/mymovie.wxml-->
+<view class='movielist'>
+</view>
+<view class='npload'>
+  <van-cell-group>
+    <van-field
+      value="{{ content }}"
+       placeholder="留下你的想法"
+      bind:change="onContentChange" 
+    />
+  </van-cell-group>
+  <van-button type="primary" bindtap='uploadImg' size='large'>上传              </van-button>
+  <van-button size="large" type='danger' bindtap='submit'>提交</van-button>
+</view>

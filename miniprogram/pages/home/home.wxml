@@ -1,0 +1,30 @@
+<!--pages/home/home.wxml-->
+<!-- 轮播图 -->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!--一部电影区域-->
+<view class="movie" wx:for="{{movielist}}" wx:key="{{index}}">
+<!--电影图片-->
+  <image class="movie-img" src="{{item.images.small}}"></image>
+<!--电影介绍-->
+  <view class="movie-info">
+    <!--电影标题--> 
+    <view class='movie-title'>{{item.title}}</view>
+    <!--观众评分-->
+    <view>观众评分:<text class='movie-score'>{{item.rating.average}}</text></view>
+    <!--主演:多位-->
+    <view>主演:<text wx:for="{{item.casts}}" wx:key="{{index}}">{{item.name}}</text></view>
+    <!--年份-->
+    <view>年份:{{item.year}}</view>
+    <!--详情按钮-->
+    <button class="movie-comment" bindtap='jumpComment' data-movieid="{{item.id}}">详情</button>
+  <!--van-button round type="danger" class="movie-comment">详情</van-button-->
+  </view>
+</view>
